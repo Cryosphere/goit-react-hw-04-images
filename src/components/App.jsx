@@ -36,13 +36,6 @@ export class App extends Component {
     }
   };
 
-  // pressEsc = e => {
-  //   if (e.key === 'Escape') {
-  //     this.closeModal(e);
-  //   }
-  // };
-
-  // updating component + fetch images from API
   async componentDidUpdate(prevProps, prevState) {
     if (
       prevState.page !== this.state.page ||
@@ -80,7 +73,6 @@ export class App extends Component {
     });
     const click = element[0];
     this.setState({ isModalOpen: true, largeImage: click });
-    // document.addEventListener('keyup', this.pressEsc);
   };
 
   // load more button func
@@ -98,7 +90,6 @@ export class App extends Component {
   // closing modal window func
   closeModal = e => {
     if (e.target.tagName !== 'IMG') {
-      // document.removeEventListener('keyup', this.pressEsc);
       this.setState({ isModalOpen: false });
     }
   };
