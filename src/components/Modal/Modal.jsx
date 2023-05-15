@@ -3,19 +3,18 @@ import style from './Modal.module.css';
 import { useEffect } from 'react';
 
 export const Modal = ({ clickImage, handleClose }) => {
-  const pressEsc = e => {
-    if (e.key === 'Escape') {
-      handleClose(e);
-    }
-  };
-
   useEffect(() => {
+    const pressEsc = e => {
+      if (e.key === 'Escape') {
+        handleClose(e);
+      }
+    };
+
     window.addEventListener('keyup', pressEsc);
     return () => {
       window.removeEventListener('keyup', pressEsc);
     };
-    // eslint-disable-next-line
-  }, []);
+  }, [handleClose]);
 
   return (
     <div onClick={e => handleClose(e)} className={style.Overlay}>
